@@ -1,7 +1,7 @@
 package datastructures.LinkedList;
 
 /**
- * Linked List implementation.
+ * Linked List (singly) implementation.
  * 
  * @param <T> The type of data stored in the list.
  * @author Darshan Prasad
@@ -9,10 +9,16 @@ package datastructures.LinkedList;
 public class LinkedList<T> {
     LinkedListNode<T> head;
     
+    /**
+     * Add node to list.
+     * @param node 
+     */
     public void add(LinkedListNode<T> node) {
+        // Empty list? node becomes head.
         if (head == null) {
             head = node;
         } else {
+            // Iterate through list; append to tail node.
             LinkedListNode current = head;
             while (current.getNext() != null) {
                 current = current.getNext();
@@ -23,6 +29,12 @@ public class LinkedList<T> {
         }
     }
     
+    /**
+     * Accepts node + value for duplicates.
+     * @param node
+     * @param value
+     * @return The node that was removed.
+     */
     public LinkedListNode remove(LinkedListNode<T> node, T value) {
         // Case 1: Empty list, return null.
         if (head == null) return null;
@@ -60,6 +72,10 @@ public class LinkedList<T> {
         return null;
     }
     
+    /**
+     * Simple String representation for testing.
+     * @return String form of list.
+     */
     @Override
     public String toString() {
         if (head != null) {
